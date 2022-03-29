@@ -68,7 +68,7 @@ require_once('../../functions/pdo_connection.php');
                                         <td><?= $category->id ?></td>
                                         <td><?= $category->name ?></td>
                                         <td>
-                                            <a href="" class="btn btn-info btn-sm">Edit</a>
+                                            <a href="<?= url('dashboard/category/edit.php?cat_id=') . $category->id; ?>" class="btn btn-info btn-sm">Edit</a>
                                             <a href="<?= url('dashboard/category/delete.php?cat_id=') . $category->id; ?>" class="btn btn-danger btn-sm">Delete</a>
                                         </td>
                                     </tr>
