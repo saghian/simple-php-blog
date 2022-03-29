@@ -1,6 +1,6 @@
 <?php
-
 require_once('../../functions/helpers.php');
+require_once ('../../auth/user-is-login.php');
 require_once('../../functions/pdo_connection.php');
 
 

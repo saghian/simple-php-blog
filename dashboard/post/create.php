@@ -2,7 +2,9 @@
 
 require_once('../../conf.php');
 require_once('../../functions/helpers.php');
+require_once ('../../auth/user-is-login.php');
 require_once('../../functions/pdo_connection.php');
+
 
 global $pdo;
 
@@ -41,9 +43,7 @@ if (
     if ($category !== false && $image_upload !== false) {
 
         $query = "INSERT INTO `toplearn-blog`.`posts` SET title = ?, cat_id = ?, body = ?, image = ?,   `created_at` = NOW() ";
-
         $statement = $pdo->prepare($query);
-
         $statement->execute([$_POST['title'], $_POST['cat_id'], $_POST['body'], $image]);
     }
     redirect('dashboard/post');
