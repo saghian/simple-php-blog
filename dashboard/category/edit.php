@@ -5,38 +5,28 @@ require_once('../../functions/pdo_connection.php');
 
 global $pdo;
 
-
 if (!isset($_GET['cat_id']) || ($_GET['cat_id'] == '')) {
     redirect('dashboard/category');
 }
 
 
-
-$query = "SELECT * FROM `toplearn-blog`.`categories` WHERE `id` = ?";
-
+$query = "SELECT * FROM `$dbName`.`categories` WHERE `id` = ?";
 $statement = $pdo->prepare($query);
-
 $statement->execute([$_GET['cat_id']]);
-
 $category = $statement->fetch();
 
 if ($category === false) {
     redirect('dashboard/category');
 }
 
-
-
 if (isset($_POST['name']) && $_POST['name'] !== '') {
 
     $query = "UPDATE `toplearn-blog`.`categories` SET name = ?, `updated_at` = NOW() WHERE `id` = ? ; ";
-
     $statement = $pdo->prepare($query);
-
     $statement->execute([$_POST['name'], $_GET['cat_id']]);
 
     redirect('dashboard/category');
 }
-
 
 ?>
 <!DOCTYPE html>
@@ -64,9 +54,7 @@ if (isset($_POST['name']) && $_POST['name'] !== '') {
 
                 </section>
 
-
                 <!-- Start:: Body Content -->
-
 
                 <section class="col-md-10 pt-3">
 
@@ -83,18 +71,14 @@ if (isset($_POST['name']) && $_POST['name'] !== '') {
 
                 </section>
 
-
-
                 <!-- End:: Body Content -->
 
             </section>
         </section>
-
 
     </section>
 
     <script src="<?= asset('assets/js/jquery.min.js'); ?>"></script>
     <script src="<?= asset('assets/js/bootstrap.min.js'); ?>"></script>
 </body>
-
 </html>

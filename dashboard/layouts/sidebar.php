@@ -7,6 +7,6 @@
         <a href="<?= url('dashboard/category'); ?>">category</a>
     </section>
     <section class="sidebar-link">
-        <a href="<?= url('dashboard'); ?>">post</a>
+        <a href="<?= url('dashboard/post'); ?>">post</a>
     </section>
 </section>

@@ -1,7 +1,7 @@
 <?php
 
+/**
+ * Image Mime
+ */
 
-
-// define('CONFIG_URL', trim(BASE_URL, '/ ') . '/' . 'conf.php');
-
-
+$allowMimeImage = array('png','jpeg','jpg', 'gif');
