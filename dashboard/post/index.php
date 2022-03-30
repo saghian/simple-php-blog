@@ -61,10 +61,8 @@ require_once('../../functions/pdo_connection.php');
                                 global $pdo;
 
                                 $query = "SELECT `$dbName`.`posts`.* ,`$dbName`.`categories`.`name` AS `category_name` FROM  `$dbName`.`posts` LEFT JOIN `$dbName`.`categories` ON `$dbName`.`posts`.`cat_id` = `$dbName`.`categories`.`id`";
-
                                 $statement = $pdo->prepare($query);
                                 $statement->execute();
-
                                 $posts = $statement->fetchAll();
 
                                 foreach ($posts as $post) {
